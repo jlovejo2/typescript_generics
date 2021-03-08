@@ -19,9 +19,15 @@ function getBigRooms<T extends MeetingResource>(rooms: Array<T>, minSize: number
 //declaring function type
 let getLargeRooms: <T extends MeetingResource>(rooms: Array<T>, minSize: number) => Array<T>
 
-let bigRooms: Array<ConferenceRoom> = getBigRooms<ConferenceRoom>(conferenceRoomData, 20)
+getLargeRooms = getBigRooms;
 
-console.log(bigRooms);
+let largeRooms = getLargeRooms(conferenceRoomData, 30);
+
+console.log(largeRooms)
+
+// let bigRooms: Array<ConferenceRoom> = getBigRooms<ConferenceRoom>(conferenceRoomData, 20)
+
+// console.log(bigRooms);
 
 
 // function shortenArray<T>(data: Array<T>, amountToShorten: number): Array<T> {

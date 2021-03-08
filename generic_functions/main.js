@@ -12,8 +12,11 @@ function getBigRooms(rooms, minSize) {
 }
 //declaring function type
 var getLargeRooms;
-var bigRooms = getBigRooms(conferenceRoom_1.conferenceRoomData, 20);
-console.log(bigRooms);
+getLargeRooms = getBigRooms;
+var largeRooms = getLargeRooms(conferenceRoom_1.conferenceRoomData, 30);
+console.log(largeRooms);
+// let bigRooms: Array<ConferenceRoom> = getBigRooms<ConferenceRoom>(conferenceRoomData, 20)
+// console.log(bigRooms);
 // function shortenArray<T>(data: Array<T>, amountToShorten: number): Array<T> {
 //   return data.splice(amountToShorten, data.length);
 // }
