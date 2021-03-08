@@ -1,8 +1,37 @@
-let junkDrawer: any[] = ['cool string', 42, true];
+import { MeetingResource } from './models/meetingResource';
+import { ConferenceRoom, conferenceRoomData } from './models/conferenceRoom';
+import { Building, buildingData } from './models/building';
+import { PartyTent, partyTentData} from './models/partyTent'
 
-//generic array type helps with typescript inference
-let companies: Array<string> = ['Microsoft', 'Google', 'Amazon'];
+function getBigRooms<T extends MeetingResource>(rooms: Array<T>, minSize: number): Array<T> {
+  
+  let bigRooms: Array<T> = [];
 
-let primeNums: Array<number> = [7, 11, 13];
+  rooms.forEach(r => {
+    if (r.capacity > minSize) {
+      bigRooms.push(r)
+    }
+  });
 
-let lastValue = primeNums.pop();
+  return bigRooms;
+}
+
+//declaring function type
+let getLargeRooms: <T extends MeetingResource>(rooms: Array<T>, minSize: number) => Array<T>
+
+let bigRooms: Array<ConferenceRoom> = getBigRooms<ConferenceRoom>(conferenceRoomData, 20)
+
+console.log(bigRooms);
+
+
+// function shortenArray<T>(data: Array<T>, amountToShorten: number): Array<T> {
+//   return data.splice(amountToShorten, data.length);
+// }
+
+// let stringArray: string[] = ['Visual Basic', 'C++', 'Typescript', 'JavaScript'];
+
+// let fewerLanguages = shortenArray<string>([1,2,3], 2);
+
+// console.log(fewerLanguages);
+
+
